@@ -1,0 +1,101 @@
+﻿@model MaquetaAplicacion.Models.Componente
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Gestor Referencias</title>
+    <link href="~/Content/reset.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="~/favicon.ico" />
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <!--Barra de navegación lateral-->
+    <nav class="navbar navbar-inverse sidebar navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("EMPRESA", "index", "home", new { area = "" }, new { @class = "navbar-brand ajuste-derecho" })*@
+                <a class="navbar-brand" href="/"><img class="ajuste-imagen" src="" alt="Logo de empresa" /></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="/home/index">Inicio<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+                    <li class="dropdown">
+                        <a href="/" class="dropdown-toggle" data-toggle="dropdown">Componentes <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-th"></span></a>
+                        <ul class="dropdown-menu forAnimate" role="menu">
+                            @foreach (var componente in @ViewBag.Componentes)
+                            {
+                                <li><a href="/Componente/@componente.Id">@componente.Nombre</a></li>
+                            }
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="/home/Profile" class="dropdown-toggle" data-toggle="dropdown">Perfil <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+                        <ul class="dropdown-menu forAnimate" role="menu">
+                            <li><a href="#">Sign out</a></li>
+                            <li><a href="#">My Settings</a></li>
+                            <li><a href="/Crud/index">Administrar referencias</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/home/Contact">Contacto<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a></li>
+                    <li><a href="/home/About">Acerca de<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-question-sign"></span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--Tareas CRUD
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="btn btn-primary" onclick="">Crear</button>
+        <button type="button" class="btn btn-primary" onclick="">Actualizar</button>
+        <button type="button" class="btn btn-primary" onclick="">Eliminar</button>
+    </div>-->
+    <!--Barra de navegación superior
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("EMPRESA", "index", "home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+                    @*<li>@Html.ActionLink("Aplicaciones", "Start", "home", new { area = "" }, new { @class = "glyphicon-question-sign" })</li>
+                    <li>@Html.ActionLink("Acerca de", "About", "home", new { area = "" }, new { @class = "glyphicon-question-sign" })</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "home", new { area = "" }, new { @class = "glyphicon-question-sign" })</li>*@
+                </ul>
+            </div>
+        </div>
+    </div>-->
+    <!--Contenido del body-->
+    <div class="container body-content text-center">
+        @RenderBody()
+        <hr />
+    </div>
+    <footer class="aislado">
+        <p class="mayusculas">&copy; @DateTime.Now.Year - gestor de referencias</p>
+    </footer>
+    <!--Carga de scripts-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/app.js"></script>
+</body>
+</html>

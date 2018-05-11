@@ -1,0 +1,30 @@
+﻿@model MaquetaAplicacion.Models.Componente
+
+@{
+    ViewBag.Title = Model.Nombre;
+}
+
+<h1 id="componente">@ViewBag.Title</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Opciones</h2>
+
+        <!-- Tab Familias -->
+        <div id="contenido" class="tab contenido_centrado">
+            @foreach (var elemento in @ViewBag.CompElems)
+            {
+                @*<a href="/Componente/@Model.Id/elemento/@elemento.Id" class="tablinks">@elemento.Nombre</a>*@
+                <a id="@elemento.Id" class="tablinks enlaces" onclick="details(this.id, $('#componente').text())">@elemento.Nombre</a>
+            }
+        </div>
+        <!-- Formulario referencias class="container body-content text-center"-->
+        <div id="formulario"></div>
+
+    </div>
+
+    <!-- Formulario piezas
+    <div class="col-md-4">
+        <h2>Lista piezas</h2>
+    </div>-->
+</div>

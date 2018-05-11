@@ -1,0 +1,239 @@
+﻿@model MaquetaAplicacion.Models.Elemento
+
+<br />
+@using (Html.BeginForm())
+{
+    <!--Protección del Framework contra la inyección de código-->
+    @Html.AntiForgeryToken()
+    <!--Formulario de creación de válvula-->
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true)
+        <!--Ocultamos el campo ID-->
+        @Html.HiddenFor(model => model.Id)
+        <!--Válvula-->
+        <div class="col-md-6">
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tipo, new { @class = "col-md-6 left-align" })
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.Tipo)
+                    @Html.ValidationMessageFor(model => model.Tipo)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="@Model.Opciones" class="left-align col-md-6">DN Superior/Inferior</label>
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.DnSup)
+                    @Html.ValidationMessageFor(model => model.DnSup)
+                </div>
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.DnInf)
+                    @Html.ValidationMessageFor(model => model.DnInf)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="@Model.TipoActuador" class="col-md-6 left-align">Tipo de Actuador</label>
+                <div class="col-md-6">
+                    @Html.EditorFor(model => model.TipoActuador)
+                    @Html.ValidationMessageFor(model => model.TipoActuador)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="@Model.Posicion" class="col-md-6 left-align">Posición por defecto</label>
+                <div class="pull-left col-md-6">
+                    @Html.EditorFor(model => model.Posicion)
+                    @Html.ValidationMessageFor(model => model.Posicion)
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(model => model.Actuador, new { @class = "col-md-6 left-align" })
+                <div class="pull-left col-md-6">
+                    @Html.EditorFor(model => model.Actuador)
+                    @Html.ValidationMessageFor(model => model.Actuador)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="@Model.Opciones" class="col-md-6 left-align">Opciones de asiento</label>
+                <div class="pull-left col-md-6">
+                    @Html.EditorFor(model => model.Opciones)
+                    @Html.ValidationMessageFor(model => model.Opciones)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="@Model.MatJunt" class="col-md-6 left-align">Material de la Junta</label>
+                <div class="pull-left col-md-6">
+                    @Html.EditorFor(model => model.MatJunt)
+                    @Html.ValidationMessageFor(model => model.MatJunt)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="@Model.Acabado" class="col-md-6 left-align">Acabado Superficial</label>
+                <div class="pull-left col-md-6">
+                    @Html.EditorFor(model => model.Acabado)
+                    @Html.ValidationMessageFor(model => model.Acabado)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="@Model.ConHous" class="col-md-6 left-align">Conexión Housing</label>
+                <div class="pull-left col-md-6">
+                    @Html.EditorFor(model => model.ConHous)
+                    @Html.ValidationMessageFor(model => model.ConHous)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="@Model.BalCle" class="col-md-6 left-align">Balancer Cleaning</label>
+                <div class="pull-left col-md-6">
+                    @Html.EditorFor(model => model.BalCle)
+                    @Html.ValidationMessageFor(model => model.BalCle)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="@Model.ConHousFon" class="col-md-6 left-align">Con. Housing Fondo</label>
+                <div class="pull-left col-md-6">
+                    @Html.EditorFor(model => model.ConHousFon)
+                    @Html.ValidationMessageFor(model => model.ConHousFon)
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="@Model.OpEsp" class="col-md-6 left-align">Opciones Especiales</label>
+                <div class="pull-left col-md-6">
+                    @Html.EditorFor(model => model.OpEsp)
+                    @Html.ValidationMessageFor(model => model.OpEsp)
+                </div>
+            </div>
+        </div>
+        <!--Cabezal-->
+        <div id="cabezal" class="col-md-6">
+            <div class="form-group">
+                <label for="ubicacion" class="col-md-6 left-align">Ubicación Feedback</label>
+                <div class="pull-left col-md-6">
+                    <input id="ubicacion" type="text" name="ubicacion" value="" />
+                    @*@Html.EditorFor(model => model.Tipo)
+                    @Html.ValidationMessageFor(model => model.Tipo)*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="modControl" class="col-md-6 left-align">Módulo de Control</label>
+                <div class="pull-left col-md-6">
+                    <input id="modControl" type="text" name="modControl" value="" />
+                    @*@Html.EditorFor(model => model.Tipo)
+        @Html.ValidationMessageFor(model => model.Tipo)*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="detectores" class="col-md-6 left-align">Detectores</label>
+                <div class="pull-left col-md-6">
+                    <input id="detectores" type="text" name="detectores" value="" />
+                    @*@Html.EditorFor(model => model.Tipo)
+        @Html.ValidationMessageFor(model => model.Tipo)*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="modInter" class="col-md-6 left-align">Módulo Interface</label>
+                <div class="pull-left col-md-6">
+                    <input id="modInter" type="text" name="modInter" value="" />
+                    @*@Html.EditorFor(model => model.Tipo)
+        @Html.ValidationMessageFor(model => model.Tipo)*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="elecVal" class="col-md-6 left-align">Electroválvula</label>
+                <div class="pull-left col-md-6">
+                    <input id="elecVal" type="text" name="elecVal" value="" />
+                    @*@Html.EditorFor(model => model.Tipo)
+        @Html.ValidationMessageFor(model => model.Tipo)*@
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="conex" class="col-md-6 left-align">Conexión</label>
+                <div class="pull-left col-md-6">
+                    <input id="conex" type="text" name="conex" value="" />
+                    @*@Html.EditorFor(model => model.Tipo)
+        @Html.ValidationMessageFor(model => model.Tipo)*@
+                </div>
+            </div>
+        </div>
+        <!--Controles del formulario-->
+        <div class="aislado">
+            <button type="submit" class="btn btn-primary">Generar Referencia</button>
+            <input id="referencia" type="text" class="" placeholder="Referencia de válvula" readonly="readonly" />
+            <input id="precio" type="text" placeholder="Precio" readonly="readonly" /><br /><br />
+            <textarea id="descripcion" rows="5" placeholder="Descripción" readonly="readonly"></textarea>
+        </div>
+    </div>
+}
+<!--Botón para estandarizar la referencia-->
+<div class="pull-left aislado">
+    <input type="button" value="Convertir en Estandar" class="btn btn-primary" />
+</div>
+<!--Prueba de retorno de datos de la BBDD-->
+<div class="tree aislado">
+    <ul>
+        @foreach (var fila in @ViewBag.Resultados)
+        {
+            <li>@fila["NombreFamilia"]</li>
+        }
+    </ul>
+</div>
+<!--<div class="tree">
+    <ul>
+        <li>
+            <span><i class="icon-calendar"></i> 2013, Week 2</span>
+            <ul>
+                <li>
+                    <span class="badge badge-success"><i class="icon-minus-sign"></i> Monday, January 7: 8.00 hours</span>
+                    <ul>
+                        <li>
+                            <a href=""><span><i class="icon-time"></i> 8.00</span> &ndash; Changed CSS to accomodate...</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="badge badge-success"><i class="icon-minus-sign"></i> Tuesday, January 8: 8.00 hours</span>
+                    <ul>
+                        <li>
+                            <span><i class="icon-time"></i> 6.00</span> &ndash; <a href="">Altered code...</a>
+                        </li>
+                        <li>
+                            <span><i class="icon-time"></i> 2.00</span> &ndash; <a href="">Simplified our approach to...</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="badge badge-warning"><i class="icon-minus-sign"></i> Wednesday, January 9: 6.00 hours</span>
+                    <ul>
+                        <li>
+                            <a href=""><span><i class="icon-time"></i> 3.00</span> &ndash; Fixed bug caused by...</a>
+                        </li>
+                        <li>
+                            <a href=""><span><i class="icon-time"></i> 3.00</span> &ndash; Comitting latest code to Git...</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <span class="badge badge-important"><i class="icon-minus-sign"></i> Wednesday, January 9: 4.00 hours</span>
+                    <ul>
+                        <li>
+                            <a href=""><span><i class="icon-time"></i> 2.00</span> &ndash; Create component that...</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <span><i class="icon-calendar"></i> 2013, Week 3</span>
+            <ul>
+                <li>
+                    <span class="badge badge-success"><i class="icon-minus-sign"></i> Monday, January 14: 8.00 hours</span>
+                    <ul>
+                        <li>
+                            <span><i class="icon-time"></i> 7.75</span> &ndash; <a href="">Writing documentation...</a>
+                        </li>
+                        <li>
+                            <span><i class="icon-time"></i> 0.25</span> &ndash; <a href="">Reverting code back to...</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>-->
