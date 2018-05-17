@@ -9,7 +9,7 @@ namespace MaquetaAplicacion.Classes
     {
         //Propiedades
         private static SqlConnection sqlConnection;
-        private static string serverName = "";
+        private static string serverName = "jughghkhl";
         private static string databaseName = "ITDEV";
         private SqlCommand storedProcedure;
         private DataSet ReturnDataSet;
